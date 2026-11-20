@@ -13,7 +13,7 @@ and audited for fairness across AGPO (youth, women and persons-with-disability) 
 | | |
 |---|---|
 | Proposal | [`docs/proposal.pdf`](docs/proposal.pdf) |
-| Final report | [`reports/REPORT.md`](reports/REPORT.md) |
+| Final report | [`reports/REPORT.md`](reports/REPORT.md) · [PDF](reports/REPORT.pdf) |
 | Research notebook (CRISP-DM record, executed) | [`notebooks/Tender_Award_Proposal_Aligned.ipynb`](notebooks/Tender_Award_Proposal_Aligned.ipynb) |
 | AI-use disclosure | [`AI_USE.md`](AI_USE.md) |
 

@@ -1,7 +1,10 @@
 # Early-warning prediction of tender award failure in Kenyan public procurement
 
 **Final report, DSA 8401 Applied Machine Learning capstone**
+
 Emmanuel Bett (131611) · MSc Data Science and Analytics · Strathmore University · November 2026
+
+Code, data pipeline, model artifacts, API and Docker configuration: <https://github.com/Emmanuelbett67/ppip-tender-award-risk>
 
 ---
 
@@ -241,7 +244,9 @@ importance on 2024 tenders (figure below) reproduces the ranking found in the ev
 (0.35), title text (0.34), validity period (0.17), county (0.15), category (0.13), entity experience (0.12),
 days to close (0.12).
 
-![Deployed model SHAP importance](figures/12_shap_importance_deployed.png) The Docker image builds from the pinned
+![Deployed model SHAP importance](figures/12_shap_importance_deployed.png)
+
+The Docker image builds from the pinned
 dependency set and is exercised in CI with a live `/predict` call.
 
 ## 5. Limitations
