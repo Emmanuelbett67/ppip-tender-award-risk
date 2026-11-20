@@ -227,7 +227,7 @@ the ECE difference is practically zero). The harm the proposal worried about, di
 reserved tenders, is not present.
 
 County is a different story (figure 11): across 27 counties with ≥ 300 test tenders the flag rate ranges from
-0.26 to 0.99 and ECE from 0.01 to 0.22. County is a predictor, and some counties genuinely fail more, but
+0.26 to 0.99 and ECE from 0.01 to 0.23. County is a predictor, and some counties genuinely fail more, but
 disparities of this size also reflect reporting differences between county governments. Any deployment should
 report county-level flag rates and should not use the score to compare counties with each other.
 
