@@ -1,0 +1,4 @@
+,Gradient boosting,Logistic regression,Random forest,Stacked ensemble,XGBoost
+D1,0.38,0.33,0.34,0.31,0.33
+D2,0.94,0.86,0.88,0.94,0.95
+D3,0.88,0.9,0.68,0.91,0.88

@@ -1,0 +1,21 @@
+id,description,created_at,updated_at,deleted_at,updated_by,code
+1,Commissions and Independent Offices,2020-09-11 13:51:50,2020-10-07 12:26:24,2020-09-11 13:51:50,,commissionsAndIndependentOffices
+39,Ministry,2020-10-09 15:13:55,,2020-10-23 10:21:03,,Ministry
+40,State Department,2020-10-09 15:13:55,,,,stateDepartment
+41,State Corporation,2020-10-09 15:13:55,,,,stateCorporation
+42,Public Universities,2020-10-09 15:13:55,,,,publicUniversities
+43,County Assemblies,2020-10-09 15:13:55,,,,countyAssemblies
+44,County Government,2020-10-09 15:13:55,,,,countyGovernment
+45,Public School,2020-10-09 15:13:55,,,,publicSchool
+47,Public Water Companies,2020-10-09 15:13:55,,,,publicWaterCompanies
+48,Semi-Autonomous Government Agencies,2020-10-09 15:13:55,,,,semiAutonomousGovernmentAgencies
+49,Public Colleges,2020-10-09 15:13:55,,,,publicColleges
+50,The Presidency,2020-10-09 15:13:55,2020-10-27 14:39:14,,,thePresidency
+51,Other Entities owned by County Governments,2020-10-09 15:13:55,,,,otherEntitiesOwnedByCountyGovernments
+52,Pension Schemes,2020-10-09 15:13:55,,,,pensionSchemes
+53,NGCDF Committees,2020-10-09 15:13:55,,,,NGCDFCommittees
+54,NGAAF,2020-10-09 15:13:55,,,,NGAAF
+55,Ministry,2020-10-23 10:21:17,,,,Ministry
+56,County,2020-10-23 10:21:17,,,,county
+57,Public Schools,2020-10-23 10:21:17,,,,publicSchools
+58,County Service Delivery Unit,2020-10-23 10:21:17,,,,countyServiceDeliveryUnit

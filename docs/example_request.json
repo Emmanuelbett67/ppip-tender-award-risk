@@ -1,0 +1,15 @@
+{
+  "title": "Supply and delivery of laboratory reagents and consumables",
+  "description": "Framework contract for the supply of reagents to the county referral hospital.",
+  "procurement_method": "Open Tender",
+  "procurement_category": "Goods",
+  "pe_type": "County Government",
+  "county": "Nakuru",
+  "published_at": "2024-03-04",
+  "close_at": "2024-03-25",
+  "validity_in_days": 120,
+  "tender_fee": 1000,
+  "n_addenda_pre_close": 0,
+  "closing_extended": false,
+  "pe_prior_tenders": 350
+}

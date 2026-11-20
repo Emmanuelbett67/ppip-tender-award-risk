@@ -1,0 +1,19 @@
+id,title,code,description,show_in_portal,created_by,updated_by,deleted_by,created_at,updated_at,deleted_at,portal_code
+1,Open Tender,open,All interested suppliers can submit a tender.,1,1,,,2020-09-08 12:22:44,,,openTender
+2,Request for Proposals,open,Request for Proposals,1,1,,,2020-09-17 12:43:48,,,requestForProposals
+3,Framework Agreements,open,Framework Agreements,1,1,,,2020-09-24 10:39:07,,,frameworkAgreements
+5,Two-stage Tendering,open,Two-stage Tendering,1,1,,,2020-10-26 11:17:28,,,twoStageTendering
+6,Design Competition,open,Design Competition,1,1,,,2020-10-26 11:18:14,,,designCompetition
+7,Restricted Tendering,selective,Restricted Tendering,1,1,,,2020-10-26 11:18:46,,,restrictedTendering
+8,Direct Procurement,direct,Direct Procurement,0,1,,,2020-10-26 11:19:17,,,directProcurement
+9,Request for Quotations,open,Request for Quotations,0,1,,,2020-10-26 11:19:45,,,requestForQuotations
+10,Electronic Reverse Auction,selective,Electronic Reverse Auction,1,1,,,2020-10-26 11:20:17,,,electronicReverseAuction
+11,Low Value Procurement,selective,Low Value Procurement,0,1,,,2020-10-26 11:21:03,,,lowValueProcurement
+12,Force Account,selective,Force Account,1,1,,,2020-10-26 11:21:34,,,forceAccount
+13,Competitive Negotiations,selective,Competitive Negotiations,1,1,,,2020-10-26 11:22:02,,,competitiveNegotiations
+14,Expression of Interest,selective,Expression of Interest,1,1,,,2020-10-26 11:22:02,,,expressionOfInterest
+15,Prequalification,selective,Prequalification,1,1,,,2020-10-26 11:22:02,,,prequalification
+16,Disposal of assets,selective,Disposal of assets,1,1,,,2020-12-16 18:45:54,,,disposalOfAssets
+17,Specially Permitted Method,SpeciallyPermitted,Specially Permitted Method,1,1,,,2021-05-03 07:45:10,,,speciallyPermittedMethod
+18,Community Participation,communityparticipartion,Community Participation,1,1,,,2021-05-03 07:46:24,,,communityParticipation
+19,Alternative Selection Method for Consultancy,AlternativeSelection,Alternative Selection Method for Consultancy,1,1,,,2021-05-03 07:47:51,,,alternativeSelectionMethodForConsultancy

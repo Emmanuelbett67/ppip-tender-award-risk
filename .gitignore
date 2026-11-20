@@ -1,0 +1,21 @@
+# environments
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+build/
+
+# full portal extracts and the SQL dump are not committed (see README, "Data")
+data/raw/*
+!data/raw/.gitkeep
+*.sql
+
+# large derived outputs
+reports/metrics/out_of_time_predictions.csv
+reports/metrics/tuning_results.csv
+
+# local scratch
+.ipynb_checkpoints/
+.DS_Store

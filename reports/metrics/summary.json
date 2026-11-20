@@ -1,0 +1,14 @@
+{
+  "selected_model": "Gradient boosting",
+  "primary_definition": "D2 Observed activity",
+  "n_tenders": 189980,
+  "pooled_auc": 0.6255228774378129,
+  "pooled_f1_non_award": 0.30923605331332715,
+  "fast": false,
+  "definitions": [
+    "D2"
+  ],
+  "models": [
+    "Gradient boosting"
+  ]
+}

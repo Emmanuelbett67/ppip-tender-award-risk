@@ -1,0 +1,3 @@
+agpo,tenders,base rate (award),flag rate,false-flag rate (awarded but flagged),"FPR (not awarded, predicted award)",mean score,ECE
+AGPO,25558,0.8806,0.725,0.7152,0.2029,0.8691,0.0534
+Non-AGPO,60984,0.8151,0.7535,0.7321,0.1521,0.8489,0.058

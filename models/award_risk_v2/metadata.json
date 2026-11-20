@@ -1,0 +1,62 @@
+{
+  "model_name": "Gradient boosting",
+  "threshold": 0.94,
+  "risk_band_cutoffs": {
+    "High": 0.21163495604367114,
+    "Medium": 0.10611932518629652
+  },
+  "feature_columns": [
+    "days_to_close",
+    "validity_days",
+    "has_tender_fee",
+    "log_tender_fee",
+    "days_to_fy_end",
+    "n_addenda_pre_close",
+    "closing_extended",
+    "log_pe_prior_tenders",
+    "title_words",
+    "has_description",
+    "procurement_method",
+    "procurement_category",
+    "pe_type",
+    "county",
+    "pub_month",
+    "fiscal_quarter",
+    "title"
+  ],
+  "numeric": [
+    "days_to_close",
+    "validity_days",
+    "has_tender_fee",
+    "log_tender_fee",
+    "days_to_fy_end",
+    "n_addenda_pre_close",
+    "closing_extended",
+    "log_pe_prior_tenders",
+    "title_words",
+    "has_description"
+  ],
+  "categorical": [
+    "procurement_method",
+    "procurement_category",
+    "pe_type",
+    "county",
+    "pub_month",
+    "fiscal_quarter"
+  ],
+  "text": "title",
+  "outcome_definition": "D2 Observed activity",
+  "trained_on": "2018-2024",
+  "n_train": 108527,
+  "created": "2026-11-20T11:01:40",
+  "versions": {
+    "tender_risk": "1.0.0",
+    "scikit-learn": "1.6.1"
+  },
+  "hyperparameters": {
+    "min_samples_leaf": 50,
+    "max_leaf_nodes": 63,
+    "learning_rate": 0.03,
+    "l2_regularization": 0.0
+  }
+}
