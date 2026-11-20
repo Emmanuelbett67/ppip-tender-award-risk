@@ -147,19 +147,23 @@ and are intended to be re-run as new outcomes mature.
 
 ## 4. Results
 
+All numbers in 4.1, 4.3, 4.5 and 4.6 are the outputs of `scripts/evaluate.py` and `scripts/train.py` committed under
+`reports/metrics/`. The random-split comparison (4.2) and the SHAP sensitivity analysis (4.4) are computed in the
+research notebook; the scripted run reproduces the notebook's metrics to within 0.002 AUC.
+
 ### 4.1 Performance under temporal validation (primary definition D2)
 
 | Model | Accuracy | Precision | Recall | F1 (award) | F1 (non-award) | Bal. acc. | ROC-AUC [95% CI] |
 |---|---|---|---|---|---|---|---|
-| Logistic regression | 0.606 | 0.868 | 0.621 | 0.724 | 0.314 | 0.577 | 0.607 [0.602, 0.612] |
+| Logistic regression | 0.606 | 0.868 | 0.621 | 0.724 | 0.314 | 0.577 | 0.607 [0.602, 0.611] |
 | Random forest | 0.535 | 0.879 | 0.511 | 0.646 | 0.323 | 0.583 | 0.622 [0.617, 0.627] |
-| **Gradient boosting** | 0.367 | 0.892 | 0.271 | 0.415 | 0.309 | 0.555 | **0.625 [0.620, 0.630]** |
-| XGBoost | 0.339 | 0.888 | 0.234 | 0.370 | 0.304 | 0.545 | 0.620 [0.615, 0.625] |
-| Stacked ensemble | 0.340 | 0.889 | 0.236 | 0.373 | 0.304 | 0.545 | 0.625 [0.620, 0.630] |
+| **Gradient boosting** | 0.364 | 0.893 | 0.267 | 0.411 | 0.309 | 0.555 | **0.626 [0.621, 0.631]** |
+| XGBoost | 0.340 | 0.889 | 0.235 | 0.372 | 0.305 | 0.546 | 0.620 [0.616, 0.625] |
+| Stacked ensemble | 0.338 | 0.889 | 0.233 | 0.369 | 0.304 | 0.545 | 0.625 [0.620, 0.630] |
 
 Gradient boosting has the highest pooled ROC-AUC and is selected. DeLong tests: it beats logistic regression
-(Δ = 0.019, p < 10⁻²⁰) and XGBoost (Δ = 0.005, p = 1.2 × 10⁻⁵), is not distinguishable from random forest
-(Δ = 0.003, p = 0.075) or the stack (Δ = 0.0003, p = 0.78). The stack adds nothing, which is itself informative:
+(Δ = 0.019, p < 10⁻²⁰) and XGBoost (Δ = 0.005, p = 7 × 10⁻⁶), is borderline against random forest
+(Δ = 0.003, p = 0.050) and indistinguishable from the stack (Δ = 0.0004, p = 0.67). The stack adds nothing, which is itself informative:
 the families are extracting the same signal.
 
 *Interpretation.* The accuracies look poor because the threshold maximises macro-F1 on a task where non-award is
@@ -187,8 +191,8 @@ know for future tenders.
 | Definition | Gradient boosting AUC |
 |---|---|
 | D1 Naive | 0.728 |
-| D2 Observed activity | 0.625 |
-| D3 Strict failure | 0.841 |
+| D2 Observed activity | 0.626 |
+| D3 Strict failure | 0.842 |
 
 Three different "truths" give three different headline numbers. D1 is inflated because non-reporting entities are
 predictable from `pe_type` and entity experience, so the model is partly predicting who fills in the portal. D3 is
@@ -211,10 +215,10 @@ short bidding windows lowering it. Addenda and extensions matter little once the
 
 | Criterion (AGPO − Non-AGPO) | Difference | 95% CI | Reading |
 |---|---|---|---|
-| Independence: flag rate | −0.032 | [−0.038, −0.026] | reserved tenders flagged slightly *less* |
-| Separation: false-flag rate among awarded | −0.019 | [−0.026, −0.012] | fewer awarded AGPO tenders wrongly flagged |
-| Separation: FPR among not awarded | +0.061 | [0.045, 0.078] | more failing AGPO tenders missed |
-| Sufficiency: ECE | −0.005 | [−0.010, 0.000] | calibration equal |
+| Independence: flag rate | −0.029 | [−0.035, −0.023] | reserved tenders flagged slightly *less* |
+| Separation: false-flag rate among awarded | −0.017 | [−0.023, −0.010] | fewer awarded AGPO tenders wrongly flagged |
+| Separation: FPR among not awarded | +0.051 | [0.035, 0.066] | more failing AGPO tenders missed |
+| Sufficiency: ECE | −0.005 | [−0.010, 0.001] | calibration equal |
 
 AGPO tenders have a higher base award rate (88% vs 82%), so independence and separation cannot both hold; the
 score errs on the side of *under*-flagging reserved tenders, and its probabilities mean the same thing for both
@@ -223,7 +227,7 @@ the ECE difference is practically zero). The harm the proposal worried about, di
 reserved tenders, is not present.
 
 County is a different story (figure 11): across 27 counties with ≥ 300 test tenders the flag rate ranges from
-0.27 to 0.99 and ECE from 0.01 to 0.23. County is a predictor, and some counties genuinely fail more, but
+0.26 to 0.99 and ECE from 0.01 to 0.22. County is a predictor, and some counties genuinely fail more, but
 disparities of this size also reflect reporting differences between county governments. Any deployment should
 report county-level flag rates and should not use the score to compare counties with each other.
 

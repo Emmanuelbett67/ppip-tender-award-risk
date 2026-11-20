@@ -3,5 +3,5 @@ Independence: flag rate,-0.0285,-0.0348,-0.0226,True
 Separation: false-flag rate (Y=1),-0.0169,-0.0229,-0.0103,True
 Separation: FPR (Y=0),0.0508,0.0345,0.0664,True
 Sufficiency: ECE,-0.0046,-0.0098,0.0006,False
-Independence chi-square p,1.6792513538353658e-18,,,
-Sufficiency LR-test p (df=2),3.1588840800931643e-109,,,
+Independence chi-square p,1.6792513538353662e-18,,,
+Sufficiency LR-test p (df=2),3.1588840801161503e-109,,,

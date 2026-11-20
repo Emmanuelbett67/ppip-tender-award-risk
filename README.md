@@ -24,18 +24,18 @@ Forward-chaining temporal validation (train 2018…Y−1, test Y, for Y = 2021�
 
 | Model | Pooled ROC-AUC [95% CI] | F1 (non-award) |
 |---|---|---|
-| Logistic regression | 0.607 [0.602, 0.612] | 0.314 |
+| Logistic regression | 0.607 [0.602, 0.611] | 0.314 |
 | Random forest | 0.622 [0.617, 0.627] | 0.323 |
-| **Gradient boosting (deployed)** | **0.625 [0.620, 0.630]** | 0.309 |
-| XGBoost | 0.620 [0.615, 0.625] | 0.304 |
+| **Gradient boosting (deployed)** | **0.626 [0.621, 0.631]** | 0.309 |
+| XGBoost | 0.620 [0.616, 0.625] | 0.305 |
 | Stacked ensemble | 0.625 [0.620, 0.630] | 0.304 |
 
 - The pilot in the proposal reported AUC 0.74 on a random split. The same XGBoost configuration evaluated
   honestly (forward-chaining) loses **0.15 AUC**: random splits leak the future.
 - Performance depends strongly on how "failure" is labelled: AUC 0.73 (naive), 0.63 (observed activity),
   0.84 (documented terminations only). The ranking of the drivers is stable (Spearman ρ ≥ 0.87).
-- Fairness: AGPO-reserved tenders are flagged *less* often (−3.2 pp, CI excludes 0) and calibration is equal
-  (ECE difference −0.005, CI includes 0), but county disparities are large (flag rate 0.27–0.99).
+- Fairness: AGPO-reserved tenders are flagged *less* often (−2.9 pp, CI excludes 0) and calibration is equal
+  (ECE difference −0.005, CI includes 0), but county disparities are large (flag rate 0.26–0.99).
 
 Full tables, figures and interpretation are in [`reports/REPORT.md`](reports/REPORT.md).
 

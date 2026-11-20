@@ -1,1 +1,5 @@
-
+comparison,AUC difference,DeLong z,DeLong p,McNemar chi2,McNemar p
+Gradient boosting vs Logistic regression,0.0189,9.58,9.361881138832536e-22,13696.3,0.0
+Gradient boosting vs Random forest,0.0034,1.96,0.050399856934229756,8700.6,0.0
+Gradient boosting vs XGBoost,0.0052,4.48,7.397372578828418e-06,556.8,4.147174521498012e-123
+Gradient boosting vs Stacked ensemble,0.0004,0.43,0.6684004280191609,727.0,4.086608830899234e-160

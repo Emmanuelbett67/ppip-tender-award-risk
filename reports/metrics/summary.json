@@ -6,9 +6,15 @@
   "pooled_f1_non_award": 0.30923605331332715,
   "fast": false,
   "definitions": [
-    "D2"
+    "D1",
+    "D2",
+    "D3"
   ],
   "models": [
-    "Gradient boosting"
+    "Logistic regression",
+    "Random forest",
+    "Gradient boosting",
+    "XGBoost",
+    "Stacked ensemble"
   ]
 }
