@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import json
 import os
+import sys
 from datetime import date, timedelta
 from pathlib import Path
 
@@ -20,8 +21,13 @@ import plotly.graph_objects as go
 import requests
 import streamlit as st
 
-from tender_risk.config import BUNDLE_PATH, ROOT
-from tender_risk.scoring import load_bundle, score_tenders
+# Streamlit Community Cloud runs the app from the repo root without installing the package: make src importable.
+_SRC = Path(__file__).resolve().parents[1] / "src"
+if _SRC.exists() and str(_SRC) not in sys.path:
+    sys.path.insert(0, str(_SRC))
+
+from tender_risk.config import BUNDLE_PATH, ROOT  # noqa: E402
+from tender_risk.scoring import load_bundle, score_tenders  # noqa: E402
 
 API_URL = os.environ.get("TENDER_RISK_API", "http://localhost:8000").rstrip("/")
 MODEL_PATH = Path(os.environ.get("MODEL_PATH", BUNDLE_PATH))
@@ -91,7 +97,7 @@ def score(records: list[dict]) -> tuple[list[dict], str]:
         st.warning(f"API returned {r.status_code}: {r.text[:200]}. Scoring in-process instead.")
     df = pd.DataFrame(payload)
     df["closing_extended"] = df["closing_extended"].astype(int)
-    return score_tenders(df, local_bundle()), "in-process (committed bundle)"
+    return score_tenders(df, local_bundle()), "embedded model (committed bundle)"
 
 
 # --------------------------------------------------------------------------------------------- widgets
@@ -166,9 +172,9 @@ with st.sidebar:
     st.markdown(f"### <span style='color:{NAVY}'>Tender Award Risk</span>", unsafe_allow_html=True)
     st.caption("Early warning for tenders on Kenya's Public Procurement Information Portal")
     if api_alive():
-        st.success(f"API online · {API_URL}", icon="✅")
+        st.success(f"Scoring via the FastAPI service · {API_URL}", icon="✅")
     else:
-        st.warning("API offline · scoring in-process", icon="⚠️")
+        st.info("Scoring with the embedded model (no API configured)", icon="ℹ️")
     st.markdown("**Deployed model**")
     st.markdown(f"- {bundle['model_name']}\n- outcome: {bundle['outcome_definition']}\n"
                 f"- trained on {bundle['n_train']:,} tenders ({bundle['trained_on']})\n"

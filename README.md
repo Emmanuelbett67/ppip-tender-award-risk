@@ -125,6 +125,13 @@ docker compose up --build        # API on :8000 and UI on http://localhost:8501
 streamlit run app/streamlit_app.py   # without Docker (pip install -e ".[ui]")
 ```
 
+### Hosted on Streamlit Community Cloud
+
+The UI deploys as is from this public repository: in <https://share.streamlit.io> choose *Create app*, repository
+`Emmanuelbett67/ppip-tender-award-risk`, branch `main`, main file `app/streamlit_app.py`, Python 3.12 or 3.13 under
+*Advanced settings*. `requirements.txt` lists what the cloud installs; the app then scores with the embedded model
+bundle because no API runs there.
+
 ## Run the API
 
 ### Docker (recommended)
