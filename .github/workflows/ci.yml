@@ -18,7 +18,7 @@ jobs:
       - name: Pipeline smoke test on the committed sample extracts
         run: |
           python scripts/make_dataset.py --raw data/sample --out /tmp/sample_features.parquet
-      - name: Unit and API tests (API tests use the committed model bundle)
+      - name: Unit, API and UI tests (against the committed model bundle)
         run: pytest -q
 
   docker:

@@ -9,6 +9,21 @@ services:
       MODEL_PATH: /app/models/award_risk_v2/award_risk_bundle.joblib
     restart: unless-stopped
 
+  # Streamlit front-end: http://localhost:8501 (calls the api service)
+  ui:
+    build: .
+    image: ppip-tender-award-risk:latest
+    container_name: tender-risk-ui
+    command: streamlit run app/streamlit_app.py --server.port 8501 --server.address 0.0.0.0 --server.headless true
+    ports:
+      - "8501:8501"
+    environment:
+      TENDER_RISK_API: http://api:8000
+      MODEL_PATH: /app/models/award_risk_v2/award_risk_bundle.joblib
+    depends_on:
+      - api
+    restart: unless-stopped
+
   # Re-train the bundle from the committed feature table, writing into the host's models/ folder:
   #   docker compose run --rm train
   train:

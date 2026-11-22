@@ -1,6 +1,6 @@
 PY ?= python
 
-.PHONY: install data sample-data evaluate evaluate-fast train test serve docker-build docker-up
+.PHONY: install data sample-data evaluate evaluate-fast train test serve ui docker-build docker-up
 
 install:
 	$(PY) -m pip install -e ".[dev]"
@@ -27,6 +27,9 @@ test:
 
 serve:
 	$(PY) -m uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload
+
+ui:
+	$(PY) -m streamlit run app/streamlit_app.py
 
 docker-build:
 	docker build -t ppip-tender-award-risk .

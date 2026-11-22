@@ -72,6 +72,7 @@ scored exactly as it would have been in training.
 
 ```
 ├── api/main.py                 FastAPI service (/predict, /predict/batch, /model, /health)
+├── app/streamlit_app.py        Streamlit demo UI (single tender, what-if, batch, evidence)
 ├── src/tender_risk/            installable package
 │   ├── config.py               study-design constants (window, definitions, feature lists)
 │   ├── features.py             feature engineering shared by pipeline and API
@@ -94,7 +95,7 @@ scored exactly as it would have been in training.
 ├── models/award_risk_v2/       serialized bundle + metadata.json (committed)
 ├── reports/                    REPORT.md, metrics/*.csv, figures/*.png
 ├── notebooks/                  executed research notebook
-├── tests/                      unit tests for features and the API
+├── tests/                      unit tests for features, the API and the UI
 ├── Dockerfile, docker-compose.yml, Makefile, .github/workflows/ci.yml
 ```
 
@@ -108,6 +109,20 @@ cd ppip-tender-award-risk
 python -m venv .venv && source .venv/bin/activate      # Windows: .venv\Scripts\activate
 pip install -e ".[dev]"
 pytest -q                                               # unit tests + API tests against the committed bundle
+```
+
+## Demo UI
+
+![Streamlit front-end](docs/ui_score.png)
+
+A Streamlit front-end (`app/streamlit_app.py`) lets a procurement officer enter a draft tender, see the award
+probability, the risk band and the three SHAP reasons, and try changes (longer bidding window, open tender, no fee)
+before the tender is advertised. It also scores CSV batches and shows the validation evidence. It calls the API
+when the API is up and scores in-process from the committed bundle otherwise.
+
+```bash
+docker compose up --build        # API on :8000 and UI on http://localhost:8501
+streamlit run app/streamlit_app.py   # without Docker (pip install -e ".[ui]")
 ```
 
 ## Run the API
@@ -192,7 +207,7 @@ pytest -q
 docker compose up --build
 ```
 
-`make data`, `make evaluate`, `make train`, `make test`, `make docker-up` wrap the same commands. Every random
+`make data`, `make evaluate`, `make train`, `make test`, `make ui`, `make docker-up` wrap the same commands. Every random
 process is seeded (`SEED = 42`); the committed `reports/metrics/*.csv` were produced by these scripts.
 
 CI (`.github/workflows/ci.yml`) runs the ingestion stage on the sample, the unit and API tests, builds the Docker
