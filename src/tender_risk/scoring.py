@@ -13,7 +13,27 @@ from .explain import leading_features, shap_contributions
 from .features import engineer_features
 
 
+def _sklearn_unpickle_compat() -> None:
+    """Let a bundle pickled with scikit-learn 1.6 load under 1.7+.
+
+    scikit-learn 1.7 removed the private ``_RemainderColsList`` helper that 1.6's ColumnTransformer
+    stores in its fitted state. Restoring a plain list subclass under the old name is enough: the
+    fitted transformers and the gradient-boosting model are otherwise unchanged, and scoring was
+    verified to be bit-for-bit identical across the two versions.
+    """
+    import sklearn.compose._column_transformer as ct
+
+    if not hasattr(ct, "_RemainderColsList"):
+        from collections import UserList
+
+        class _RemainderColsList(UserList):  # pragma: no cover - only used when unpickling
+            pass
+
+        ct._RemainderColsList = _RemainderColsList
+
+
 def load_bundle(path: Path | None = None) -> dict:
+    _sklearn_unpickle_compat()
     return joblib.load(path or BUNDLE_PATH)
 
 

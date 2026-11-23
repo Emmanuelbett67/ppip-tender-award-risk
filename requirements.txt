@@ -1,11 +1,17 @@
 # Streamlit Community Cloud installs from this file (the Docker image and local installs use pyproject.toml).
-pandas==2.2.3
-numpy==2.1.3
-scikit-learn==1.6.1
+# Python 3.11 to 3.13: the exact versions the model bundle was trained with.
+# Python 3.14: the first releases that ship 3.14 wheels (no source builds on the cloud); scoring is identical.
+numpy==2.1.3; python_version < "3.14"
+numpy==2.3.3; python_version >= "3.14"
+pandas==2.2.3; python_version < "3.14"
+pandas==2.3.3; python_version >= "3.14"
+scikit-learn==1.6.1; python_version < "3.14"
+scikit-learn==1.7.2; python_version >= "3.14"
+scipy==1.16.3; python_version < "3.14"
+scipy==1.16.2; python_version >= "3.14"
 xgboost==3.2.0
 shap==0.52.0
 joblib==1.5.2
-scipy==1.16.3
 streamlit==1.52.0
 plotly==6.2.0
 requests>=2.32
