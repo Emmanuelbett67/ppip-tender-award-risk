@@ -122,7 +122,7 @@ when the API is up and scores in-process from the committed bundle otherwise.
 
 ```bash
 docker compose up --build        # API on :8000 and UI on http://localhost:8501
-streamlit run app/streamlit_app.py   # without Docker (pip install -e ".[ui]")
+streamlit run app/streamlit_app.py   # without Docker (pip install -e .)
 ```
 
 ### Hosted on Streamlit Community Cloud

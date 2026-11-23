@@ -9,7 +9,7 @@ WORKDIR /app
 # dependencies first so the layer is cached between code changes
 COPY pyproject.toml README.md ./
 COPY src ./src
-RUN pip install --no-cache-dir -e ".[ui]"
+RUN pip install --no-cache-dir -e .
 
 # API code, Streamlit front-end, the serialized model bundle and the evidence the UI shows
 COPY api ./api
