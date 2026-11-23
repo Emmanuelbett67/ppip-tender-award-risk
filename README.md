@@ -128,9 +128,11 @@ streamlit run app/streamlit_app.py   # without Docker (pip install -e .)
 ### Hosted on Streamlit Community Cloud
 
 The UI deploys as is from this public repository: in <https://share.streamlit.io> choose *Create app*, repository
-`Emmanuelbett67/ppip-tender-award-risk`, branch `main`, main file `app/streamlit_app.py`, Python 3.12 or 3.13 under
-*Advanced settings*. `requirements.txt` lists what the cloud installs; the app then scores with the embedded model
-bundle because no API runs there.
+`Emmanuelbett67/ppip-tender-award-risk`, branch `main`, main file `app/streamlit_app.py`, and **Python 3.13** under
+*Advanced settings* (the default 3.14 has no wheels for the pinned numpy and scikit-learn, so the install builds from
+source and fails; the Python version cannot be changed after deployment, so delete and recreate the app if needed).
+`requirements.txt` lists what the cloud installs; the app then scores with the embedded model bundle because no API
+runs there.
 
 ## Run the API
 
